@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/pages/my_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_project/pages/my_app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,38 +9,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Breakfast",
-          style: TextStyle(
-              color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        elevation: 0.0,
-        leading: GestureDetector(
-          onTap: () {},
-          child: Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Colors.white,
-            ),
-            child: SvgPicture.asset("images/Arrow - Left 2.svg"),
-          ),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () {},
+      appBar: myAppBar(),
+      body: Column(
+        children: [
+          Center(
             child: Container(
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.white,
-              ),
-              child: SvgPicture.asset("images/dots.svg"),
+              margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+              width: 1000,
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                    color: const Color(0xff101617).withOpacity(0.1),
+                    blurRadius: 40,
+                    spreadRadius: 0)
+              ]),
+              child: const MyTextField(),
             ),
-          ),
+          )
         ],
       ),
     );
